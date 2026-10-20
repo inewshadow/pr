@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="เว็บไซต์หน่วยงานประชาสัมพันธ์มหาวิทยาลัย ข่าวสาร บริการ และช่องทางติดต่อ">
+  <title>หน่วยงานประชาสัมพันธ์ | มหาวิทยาลัย</title>
+  <style>
+    :root {
+      --navy: #102b4e;
+      --blue: #1d5d91;
+      --gold: #e8b34b;
+      --ink: #233247;
+      --muted: #64748b;
+      --paper: #f5f8fc;
+      --white: #fff;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: "Leelawadee UI", Tahoma, "Noto Sans Thai", sans-serif;
+      line-height: 1.75;
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(1120px, calc(100% - 40px)); margin: auto; }
+    .topbar { background: var(--navy); color: #e8eef7; font-size: .9rem; }
+    .topbar .container { display: flex; justify-content: space-between; gap: 16px; padding: 8px 0; flex-wrap: wrap; }
+    header { background: var(--white); box-shadow: 0 5px 20px #102b4e0d; position: sticky; top: 0; z-index: 10; }
+    .nav { min-height: 86px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: flex; align-items: center; gap: 14px; min-width: 0; }
+    .logo { width: 54px; height: 54px; display: grid; place-items: center; border-radius: 16px; background: var(--navy); color: var(--gold); font-size: 1.45rem; font-weight: 800; flex-shrink: 0; }
+    .brand-title { color: var(--navy); font-weight: 800; font-size: 1.12rem; line-height: 1.45; }
+    .brand-sub { color: var(--muted); font-size: .82rem; }
+    nav { display: flex; gap: 28px; align-items: center; }
+    nav a { font-weight: 700; color: #334155; transition: color .2s; }
+    nav a:hover { color: var(--blue); }
+    .hero { color: white; background: linear-gradient(115deg, #102b4e 0%, #1d5d91 72%, #367ea8 100%); overflow: hidden; position: relative; }
+    .hero::after { content: ""; position: absolute; width: 420px; height: 420px; border: 1px solid #ffffff20; border-radius: 50%; right: -90px; top: -170px; box-shadow: 0 0 0 48px #ffffff08, 0 0 0 100px #ffffff06; }
+    .hero-inner { padding: 92px 0 100px; position: relative; z-index: 1; max-width: 760px; }
+    .eyebrow { display: inline-block; color: var(--gold); font-weight: 800; letter-spacing: .04em; margin-bottom: 12px; }
+    h1 { font-size: clamp(2.2rem, 5vw, 4rem); line-height: 1.22; margin: 0 0 20px; letter-spacing: -.02em; }
+    .hero p { color: #e2edf8; font-size: 1.12rem; max-width: 640px; margin: 0 0 30px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 22px; border-radius: 10px; font-weight: 800; transition: transform .2s, background .2s; }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-gold { background: var(--gold); color: #182b40; }
+    .btn-outline { border: 1px solid #ffffff80; color: white; }
+    section { padding: 76px 0; scroll-margin-top: 95px; }
+    .section-heading { margin-bottom: 30px; max-width: 700px; }
+    .section-heading .eyebrow { color: var(--blue); margin-bottom: 4px; }
+    h2 { color: var(--navy); font-size: clamp(1.7rem, 3vw, 2.45rem); line-height: 1.35; margin: 0 0 12px; }
+    .section-heading p { color: var(--muted); margin: 0; }
+    .service-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .service-card { background: white; padding: 28px; border-radius: 16px; border: 1px solid #e6edf5; box-shadow: 0 10px 30px #102b4e08; }
+    .service-icon { width: 50px; height: 50px; display: grid; place-items: center; background: #eaf2fa; color: var(--blue); border-radius: 14px; font-size: 1.4rem; margin-bottom: 18px; }
+    .service-card h3 { color: var(--navy); margin: 0 0 8px; font-size: 1.15rem; }
+    .service-card p { color: var(--muted); margin: 0; }
+    .history { background: white; }
+    .history-layout { display: grid; grid-template-columns: .9fr 1.1fr; gap: 50px; align-items: center; }
+    .history-art { min-height: 310px; border-radius: 22px; padding: 34px; color: white; background: linear-gradient(145deg, #173a61, #2b719e); display: flex; flex-direction: column; justify-content: flex-end; position: relative; overflow: hidden; }
+    .history-art::before { content: "PR"; font-size: 10rem; font-weight: 900; color: #ffffff12; position: absolute; right: 15px; top: -30px; line-height: 1; }
+    .history-art strong { font-size: 1.5rem; position: relative; }
+    .history-art span { color: #d7e8f7; position: relative; }
+    .history-copy p { color: var(--muted); margin: 0 0 14px; }
+    .contact { background: #eef4fa; }
+    .contact-panel { background: white; border: 1px solid #e0eaf4; border-radius: 20px; padding: 32px; display: flex; justify-content: space-between; align-items: center; gap: 24px; }
+    .contact-panel p { color: var(--muted); margin: 0; }
+    .phone { font-size: clamp(1.35rem, 3vw, 2rem); font-weight: 900; color: var(--blue); white-space: nowrap; }
+    footer { background: var(--navy); color: #d5e1ef; padding: 25px 0; font-size: .9rem; }
+    footer .container { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+    @media (max-width: 780px) {
+      .nav { align-items: flex-start; flex-direction: column; padding: 16px 0; gap: 14px; }
+      nav { width: 100%; gap: 18px; flex-wrap: wrap; }
+      .hero-inner { padding: 68px 0 76px; }
+      .service-grid { grid-template-columns: 1fr; }
+      .history-layout { grid-template-columns: 1fr; gap: 28px; }
+      .contact-panel { align-items: flex-start; flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; } }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="container">
+      <span>เว็บไซต์หน่วยงานประชาสัมพันธ์</span>
+      <span>สื่อสารข่าวสาร · เชื่อมโยงมหาวิทยาลัย</span>
+    </div>
+  </div>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#home" aria-label="กลับหน้าหลัก">
+        <div class="logo" aria-hidden="true">PR</div>
+        <div>
+          <div class="brand-title">หน่วยงานประชาสัมพันธ์</div>
+          <div class="brand-sub">มหาวิทยาลัย</div>
+        </div>
+      </a>
+      <nav aria-label="เมนูหลัก">
+        <a href="#services">บริการ</a>
+        <a href="#history">ประวัติความเป็นมา</a>
+        <a href="#contact">ติดต่อ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="hero-inner">
+          <span class="eyebrow">UNIVERSITY · PUBLIC RELATIONS</span>
+          <h1>สื่อสารอย่างสร้างสรรค์<br>เชื่อมโยงทุกเรื่องราว</h1>
+          <p>หน่วยงานประชาสัมพันธ์ พร้อมเผยแพร่ข่าวสาร กิจกรรม และข้อมูลสำคัญของมหาวิทยาลัย เพื่อเชื่อมต่อมหาวิทยาลัยกับนักศึกษา บุคลากร และประชาชน</p>
+          <div class="actions">
+            <a class="btn btn-gold" href="#services">ดูบริการของเรา <span aria-hidden="true">→</span></a>
+            <a class="btn btn-outline" href="#contact">ติดต่อหน่วยงาน</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">OUR SERVICES</span>
+          <h2>บริการของหน่วยงาน</h2>
+          <p>สนับสนุนการสื่อสารและเผยแพร่ข้อมูลของมหาวิทยาลัยอย่างทั่วถึงและมีประสิทธิภาพ</p>
+        </div>
+        <div class="service-grid">
+          <article class="service-card">
+            <div class="service-icon" aria-hidden="true">✦</div>
+            <h3>ข่าวสารและประชาสัมพันธ์</h3>
+            <p>เผยแพร่ข่าวประกาศ กิจกรรม และข้อมูลสำคัญของมหาวิทยาลัยให้เข้าถึงกลุ่มเป้าหมาย</p>
+          </article>
+          <article class="service-card">
+            <div class="service-icon" aria-hidden="true">▣</div>
+            <h3>สื่อและงานสร้างสรรค์</h3>
+            <p>สนับสนุนการผลิตสื่อประชาสัมพันธ์ ภาพถ่าย และเนื้อหาสำหรับช่องทางออนไลน์</p>
+          </article>
+          <article class="service-card">
+            <div class="service-icon" aria-hidden="true">◎</div>
+            <h3>ประสานงานสื่อมวลชน</h3>
+            <p>ประสานข้อมูลและอำนวยความสะดวกด้านการสื่อสารระหว่างมหาวิทยาลัยกับสื่อมวลชน</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="history" id="history">
+      <div class="container history-layout">
+        <div class="history-art">
+          <strong>หน่วยงานประชาสัมพันธ์</strong>
+          <span>สื่อสารข้อมูลอย่างถูกต้อง โปร่งใส และเข้าถึงได้</span>
+        </div>
+        <div class="history-copy">
+          <div class="section-heading">
+            <span class="eyebrow">OUR STORY</span>
+            <h2>ประวัติความเป็นมา</h2>
+          </div>
+          <p>หน่วยงานประชาสัมพันธ์มีบทบาทในการสื่อสารข้อมูล ข่าวสาร และกิจกรรมของมหาวิทยาลัยไปยังนักศึกษา บุคลากร ศิษย์เก่า และประชาชนทั่วไป</p>
+          <p>มุ่งมั่นพัฒนาการสื่อสารให้ทันสมัย ถูกต้อง และรวดเร็ว พร้อมส่งเสริมภาพลักษณ์ที่ดีและสร้างความเข้าใจอันดีระหว่างมหาวิทยาลัยกับสังคม</p>
+          <p><em>หมายเหตุ: สามารถแก้ไขข้อความส่วนนี้ให้ตรงกับประวัติจริงของหน่วยงานได้</em></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">CONTACT US</span>
+          <h2>ติดต่อหน่วยงาน</h2>
+          <p>สอบถามข้อมูลหรือประสานงานกับหน่วยงานประชาสัมพันธ์ได้ตามหมายเลขด้านล่าง</p>
+        </div>
+        <div class="contact-panel">
+          <div>
+            <h3 style="margin:0 0 6px;color:var(--navy)">หน่วยงานประชาสัมพันธ์</h3>
+            <p>มหาวิทยาลัย · ติดต่อสอบถามในเวลาทำการ</p>
+          </div>
+          <a class="phone" href="tel:0655412514" aria-label="โทร 065-541-2514">☎ 065-541-2514</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <span>© <span id="year">2026</span> หน่วยงานประชาสัมพันธ์ มหาวิทยาลัย</span>
+      <span>สื่อสารด้วยความรับผิดชอบ เพื่อทุกคนในสังคม</span>
+    </div>
+  </footer>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
